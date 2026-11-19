@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public void PlayGame()
+        public void PlayGame()
     {
-        SceneManager.LoadScene("Level1");
+        GameSession.StartLevel(0);
     }
 
     public void QuitGame()

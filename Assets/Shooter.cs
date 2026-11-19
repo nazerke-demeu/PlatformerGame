@@ -20,12 +20,13 @@ public class Shooter : MonoBehaviour
             dir = Mathf.Sign(rb.linearVelocity.x);
     }
 
-    void OnFire()
+        void OnFire()
     {
         if (Time.timeScale == 0f) return;
 
         if (Sfx.I != null) Sfx.I.Play(Sfx.I.shoot);
         GameObject b = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        b.GetComponent<BulletHit>().damage = stats.bulletDamage;
         b.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(dir * stats.bulletSpeed, 0f);
         Destroy(b, stats.bulletLifetime);
     }

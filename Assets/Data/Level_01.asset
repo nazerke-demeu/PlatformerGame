@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5520734140331074e85b2ac09cf08f5e, type: 3}
+  m_Name: Level_01
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Level 1
+  playerStart: {x: -8, y: -1.5}
+  backgroundColor: {r: 0.1, g: 0.15, b: 0.3, a: 1}
+  coinsRequired: 3
+  timeLimit: 90
+  items:
+  - prefab: {fileID: 9200857864998188206, guid: 5c3ee3bbbe9b10a4b83f7cc84113cf2b, type: 3}
+    position: {x: 0, y: -3}
+    width: 40
+    patrolRange: 3
+  - prefab: {fileID: 9200857864998188206, guid: 5c3ee3bbbe9b10a4b83f7cc84113cf2b, type: 3}
+    position: {x: 6, y: -1.5}
+    width: 4
+    patrolRange: 3
+  - prefab: {fileID: 9200857864998188206, guid: 5c3ee3bbbe9b10a4b83f7cc84113cf2b, type: 3}
+    position: {x: 12, y: -0.5}
+    width: 4
+    patrolRange: 3
+  - prefab: {fileID: 4493711758163525124, guid: 18d25abc1151ac34e918b630f7cd2036, type: 3}
+    position: {x: 3, y: -2}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: -2, y: -1.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 6, y: -0.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 12, y: 0.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 8905577623777777320, guid: 21c4b5054a130d7448b48e7489b38734, type: 3}
+    position: {x: 18, y: -2}
+    width: 0
+    patrolRange: 3

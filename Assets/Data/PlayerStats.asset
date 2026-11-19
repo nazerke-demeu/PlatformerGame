@@ -20,3 +20,4 @@ MonoBehaviour:
   fallLimit: -10
   bulletSpeed: 15
   bulletLifetime: 2
+  bulletDamage: 1

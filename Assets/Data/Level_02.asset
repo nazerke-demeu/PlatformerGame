@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5520734140331074e85b2ac09cf08f5e, type: 3}
+  m_Name: Level_02
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Level 2
+  playerStart: {x: -8, y: -1.5}
+  backgroundColor: {r: 0.1, g: 0.15, b: 0.3, a: 1}
+  coinsRequired: 4
+  timeLimit: 120
+  items:
+  - prefab: {fileID: 9200857864998188206, guid: 5c3ee3bbbe9b10a4b83f7cc84113cf2b, type: 3}
+    position: {x: 15, y: -3}
+    width: 50
+    patrolRange: 3
+  - prefab: {fileID: 4493711758163525124, guid: 18d25abc1151ac34e918b630f7cd2036, type: 3}
+    position: {x: 4, y: -2}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 2, y: -1.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 8644639022023773860, guid: 14368c73af3fd2d438d4f93e5501cb91, type: 3}
+    position: {x: 9, y: -2}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 9200857864998188206, guid: 5c3ee3bbbe9b10a4b83f7cc84113cf2b, type: 3}
+    position: {x: 14, y: 0}
+    width: 4
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 14, y: -0.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 7174610341086367221, guid: de76941e59777944191fe4bdbd363b9b, type: 3}
+    position: {x: 20, y: -2}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 4493711758163525124, guid: 18d25abc1151ac34e918b630f7cd2036, type: 3}
+    position: {x: 23, y: -2}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 22, y: -1.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 6913157233756646152, guid: 45b9a98db4986fc40a12916543537174, type: 3}
+    position: {x: 29, y: -2}
+    width: 0
+    patrolRange: 4
+  - prefab: {fileID: 2615254313803735464, guid: efc0fb77d11b1d14a936a81efe876f39, type: 3}
+    position: {x: 27, y: -1.5}
+    width: 0
+    patrolRange: 3
+  - prefab: {fileID: 8905577623777777320, guid: 21c4b5054a130d7448b48e7489b38734, type: 3}
+    position: {x: 36, y: -2}
+    width: 0
+    patrolRange: 3

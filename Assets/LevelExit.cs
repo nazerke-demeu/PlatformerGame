@@ -1,15 +1,26 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
     public int coinsRequired = 3;
+
     SpriteRenderer sr;
+    Collector collector;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.color = new Color(1f, 1f, 1f, 0.4f);
+    }
+
+    void Start()
+    {
+        collector = FindFirstObjectByType<Collector>();
+    }
+
+    void Update()
+    {
+        bool open = collector != null && collector.coins >= coinsRequired;
+        sr.color = open ? Color.white : new Color(1f, 1f, 1f, 0.4f);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -23,17 +34,6 @@ public class LevelExit : MonoBehaviour
             return;
         }
 
-        int next = SceneManager.GetActiveScene().buildIndex + 1;
-        if (next < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(next);
-        else
-            Debug.Log("Level complete! (no next scene yet)");
-    }
-
-    void Update()
-    {
-        Collector c = FindFirstObjectByType<Collector>();
-        if (c != null && c.coins >= coinsRequired)
-            sr.color = Color.white;
+        GameSession.CompleteLevel();
     }
 }

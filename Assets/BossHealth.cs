@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
-    public int maxHp = 10;
+    public EnemyStats stats;
     public TMP_Text hpText;
+    public float winDelay = 1f;
 
     int hp;
 
     void Start()
     {
-        hp = maxHp;
+        hp = stats.maxHp;
         UpdateText();
     }
 
@@ -22,15 +23,15 @@ public class BossHealth : MonoBehaviour
 
         if (hp <= 0)
         {
-            GetComponent<BossAttack>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
-            Invoke(nameof(Win), 1f);
+            GetComponent<BossAttack>().enabled = false;
+            Invoke(nameof(Win), winDelay);
         }
     }
 
-    void Win()
+       void Win()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameSession.CompleteLevel();
     }
 
     void UpdateText()
