@@ -4,21 +4,11 @@ public class PatrollerEnemy : MonoBehaviour
 {
     enum State { Patrol, Alert, Chase, Return }
 
+    public EnemyStats stats;
+
     [Header("Waypoints")]
     public Transform leftPoint;
     public Transform rightPoint;
-
-    [Header("Movement")]
-    public float patrolSpeed = 2f;
-    public float chaseSpeed = 4f;
-
-    [Header("Vision")]
-    public float visionRange = 6f;
-    public float viewHalfAngle = 60f;
-    public float loseSightTime = 1.5f;
-
-    [Header("Alert (telegraph before chase)")]
-    public float alertTime = 0.5f;
 
     State state = State.Patrol;
     Transform player;
@@ -43,7 +33,7 @@ public class PatrollerEnemy : MonoBehaviour
         switch (state)
         {
             case State.Patrol:
-                MoveTo(target.position.x, patrolSpeed);
+                MoveTo(target.position.x, stats.patrolSpeed);
                 if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
                     target = (target == rightPoint) ? leftPoint : rightPoint;
                 if (sees) StartAlert();
@@ -57,20 +47,20 @@ public class PatrollerEnemy : MonoBehaviour
                 {
                     sr.color = baseColor;
                     state = State.Chase;
-                    timer = loseSightTime;
+                    timer = stats.loseSightTime;
                 }
                 break;
 
             case State.Chase:
-                MoveTo(player.position.x, chaseSpeed);
-                if (sees) timer = loseSightTime;
+                MoveTo(player.position.x, stats.chaseSpeed);
+                if (sees) timer = stats.loseSightTime;
                 else timer -= Time.deltaTime;
                 if (timer <= 0f) state = State.Return;
                 break;
 
             case State.Return:
                 target = NearestPoint();
-                MoveTo(target.position.x, patrolSpeed);
+                MoveTo(target.position.x, stats.patrolSpeed);
                 if (sees) StartAlert();
                 else if (Mathf.Abs(transform.position.x - target.position.x) < 0.1f)
                     state = State.Patrol;
@@ -81,7 +71,7 @@ public class PatrollerEnemy : MonoBehaviour
     void StartAlert()
     {
         state = State.Alert;
-        timer = alertTime;
+        timer = stats.windupTime;
     }
 
     void Face(float x)
@@ -111,8 +101,8 @@ public class PatrollerEnemy : MonoBehaviour
         Vector2 origin = transform.position;
         Vector2 toPlayer = (Vector2)player.position - origin;
 
-        if (toPlayer.magnitude > visionRange) return false;
-        if (Vector2.Angle(new Vector2(facing, 0f), toPlayer) > viewHalfAngle) return false;
+        if (toPlayer.magnitude > stats.visionRange) return false;
+        if (Vector2.Angle(new Vector2(facing, 0f), toPlayer) > stats.viewHalfAngle) return false;
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, toPlayer.normalized, toPlayer.magnitude);
         foreach (RaycastHit2D h in hits)
@@ -126,7 +116,8 @@ public class PatrollerEnemy : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        if (stats == null) return;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, visionRange);
+        Gizmos.DrawWireSphere(transform.position, stats.visionRange);
     }
 }

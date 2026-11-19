@@ -3,8 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 7f;
-    public float jumpForce = 12f;
+    public PlayerStats stats;
 
     Rigidbody2D rb;
     Animator anim;
@@ -30,14 +29,14 @@ public class PlayerController : MonoBehaviour
 
         if (grounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            Sfx.I.Play(Sfx.I.jump);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, stats.jumpForce);
+            if (Sfx.I != null) Sfx.I.Play(Sfx.I.jump);
         }
     }
 
     void Update()
     {
-        rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveX * stats.moveSpeed, rb.linearVelocity.y);
 
         anim.SetFloat("Speed", Mathf.Abs(moveX));
         anim.SetBool("Grounded", grounded);

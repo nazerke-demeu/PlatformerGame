@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: 4ff8578819d44994d92879b4d4b5be56, type: 2}
 --- !u!61 &54641717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: 4ff8578819d44994d92879b4d4b5be56, type: 2}
 --- !u!61 &361948868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1532,14 +1532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e913d535a5f534686c6f2463f3176b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrollerEnemy
+  stats: {fileID: 11400000, guid: aaaa5d0384b918f4e84369709f2da294, type: 2}
   leftPoint: {fileID: 422734002}
   rightPoint: {fileID: 1682446073}
-  patrolSpeed: 2
-  chaseSpeed: 4
-  visionRange: 6
-  viewHalfAngle: 60
-  loseSightTime: 1.5
-  alertTime: 0.5
 --- !u!114 &629535127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,7 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: aaaa5d0384b918f4e84369709f2da294, type: 2}
 --- !u!50 &629535128
 Rigidbody2D:
   serializedVersion: 5
@@ -2144,15 +2139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0c960a7bd401c41a3a16ec4367cdc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargerEnemy
+  stats: {fileID: 11400000, guid: 1306d445479e15046b3c1c45ddc466ce, type: 2}
   leftPoint: {fileID: 1695223764}
   rightPoint: {fileID: 2100651534}
-  patrolSpeed: 1.5
-  chargeSpeed: 10
-  chargeDistance: 6
-  windupTime: 0.6
-  recoverTime: 1.2
-  visionRange: 7
-  heightTolerance: 1.2
 --- !u!114 &831819311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2165,7 +2154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: 1306d445479e15046b3c1c45ddc466ce, type: 2}
 --- !u!50 &831819312
 Rigidbody2D:
   serializedVersion: 5
@@ -2344,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: 4ff8578819d44994d92879b4d4b5be56, type: 2}
 --- !u!61 &868629216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5242,11 +5231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddbf54a8fc11c34cb0d0bd7158e9f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemy
+  stats: {fileID: 11400000, guid: e38ce09fd5254b445984263c0d1caed6, type: 2}
   projectilePrefab: {fileID: 5947351646077014501, guid: 2fa66660001a26141980c9f607a2d818, type: 3}
-  projectileSpeed: 6
-  aimTime: 0.6
-  cooldownTime: 1.6
-  visionRange: 8
 --- !u!1 &1969478671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,8 +5893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fcb7f82855e204f88a3e845ad8d9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 7
-  jumpForce: 12
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
 --- !u!114 &2125563418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5921,8 +5906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6052a89b1d0ca764cae181f1ee5322b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
   bulletPrefab: {fileID: 9088984680860801, guid: ec7e4661cf5e81b4bb2d77c7c1cdaf8c, type: 3}
-  bulletSpeed: 15
 --- !u!114 &2125563419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,9 +6018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ee35b20b7e80944b4d04f8b574c6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 3
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
   hp: 0
-  fallLimit: -10
 --- !u!114 &2125563423
 MonoBehaviour:
   m_ObjectHideFlags: 0

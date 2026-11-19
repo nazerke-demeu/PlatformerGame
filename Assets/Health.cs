@@ -4,22 +4,21 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int maxHp = 3;
+    public PlayerStats stats;
     public int hp;
-    public float fallLimit = -10f;
 
     bool invincible;
     SpriteRenderer sr;
 
     void Awake()
     {
-        hp = maxHp;
+        hp = stats.maxHp;
         sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (transform.position.y < fallLimit)
+        if (transform.position.y < stats.fallLimit)
             Die();
     }
 
@@ -27,8 +26,8 @@ public class Health : MonoBehaviour
     {
         if (invincible) return;
 
+        if (Sfx.I != null) Sfx.I.Play(Sfx.I.hurt);
         hp -= amount;
-                Sfx.I.Play(Sfx.I.hurt);
         if (hp <= 0)
         {
             Die();
@@ -39,18 +38,18 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        hp = Mathf.Min(hp + amount, maxHp);
+        hp = Mathf.Min(hp + amount, stats.maxHp);
     }
 
     IEnumerator Invincibility()
     {
         invincible = true;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < stats.blinkCount; i++)
         {
             sr.enabled = false;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(stats.blinkInterval);
             sr.enabled = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(stats.blinkInterval);
         }
         invincible = false;
     }

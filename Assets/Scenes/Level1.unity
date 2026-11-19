@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d675199f6e43942bdddef1cbe099d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
-  damage: 1
+  stats: {fileID: 11400000, guid: 4ff8578819d44994d92879b4d4b5be56, type: 2}
 --- !u!61 &361948868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4739,8 +4739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fcb7f82855e204f88a3e845ad8d9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 7
-  jumpForce: 12
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
 --- !u!114 &2125563418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4753,8 +4752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6052a89b1d0ca764cae181f1ee5322b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
   bulletPrefab: {fileID: 9088984680860801, guid: ec7e4661cf5e81b4bb2d77c7c1cdaf8c, type: 3}
-  bulletSpeed: 15
 --- !u!114 &2125563419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4865,9 +4864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ee35b20b7e80944b4d04f8b574c6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 3
+  stats: {fileID: 11400000, guid: e238d9772f757124e95fa40a41c22c9c, type: 2}
   hp: 0
-  fallLimit: -10
 --- !u!114 &2125563423
 MonoBehaviour:
   m_ObjectHideFlags: 0

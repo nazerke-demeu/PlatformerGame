@@ -4,14 +4,8 @@ public class ShooterEnemy : MonoBehaviour
 {
     enum State { Idle, Aim, Cooldown }
 
-    [Header("Attack")]
+    public EnemyStats stats;
     public GameObject projectilePrefab;
-    public float projectileSpeed = 6f;
-    public float aimTime = 0.6f;
-    public float cooldownTime = 1.6f;
-
-    [Header("Vision")]
-    public float visionRange = 8f;
 
     State state = State.Idle;
     float timer;
@@ -34,7 +28,7 @@ public class ShooterEnemy : MonoBehaviour
                 if (CanSeePlayer() && IsOnScreen())
                 {
                     state = State.Aim;
-                    timer = aimTime;
+                    timer = stats.windupTime;
                 }
                 break;
 
@@ -53,7 +47,7 @@ public class ShooterEnemy : MonoBehaviour
                     Fire();
                     sr.color = baseColor;
                     state = State.Cooldown;
-                    timer = cooldownTime;
+                    timer = stats.cooldownTime;
                 }
                 break;
 
@@ -67,8 +61,9 @@ public class ShooterEnemy : MonoBehaviour
     void Fire()
     {
         GameObject p = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        p.GetComponent<Fireball>().Init(stats.damage, stats.projectileLifetime);
         Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
-        p.GetComponent<Rigidbody2D>().linearVelocity = dir * projectileSpeed;
+        p.GetComponent<Rigidbody2D>().linearVelocity = dir * stats.projectileSpeed;
         if (Sfx.I != null) Sfx.I.Play(Sfx.I.shoot);
     }
 
@@ -82,7 +77,7 @@ public class ShooterEnemy : MonoBehaviour
     {
         Vector2 origin = transform.position;
         Vector2 toPlayer = (Vector2)player.position - origin;
-        if (toPlayer.magnitude > visionRange) return false;
+        if (toPlayer.magnitude > stats.visionRange) return false;
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, toPlayer.normalized, toPlayer.magnitude);
         foreach (RaycastHit2D h in hits)
@@ -96,7 +91,8 @@ public class ShooterEnemy : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        if (stats == null) return;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, visionRange);
+        Gizmos.DrawWireSphere(transform.position, stats.visionRange);
     }
 }

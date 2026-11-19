@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
-    public int damage = 1;
+    public EnemyStats stats;
 
     void OnTriggerStay2D(Collider2D other)
     {
         Health h = other.GetComponent<Health>();
         if (h != null)
-            h.TakeDamage(damage);
+            h.TakeDamage(stats.damage);
     }
 }

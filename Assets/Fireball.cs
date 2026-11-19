@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public int damage = 1;
+    int damage;
+    float lifetime;
+
+    public void Init(int dmg, float life)
+    {
+        damage = dmg;
+        lifetime = life;
+    }
 
     void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, lifetime);
     }
 
     void OnTriggerEnter2D(Collider2D other)

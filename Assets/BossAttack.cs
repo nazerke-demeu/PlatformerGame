@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+    public EnemyStats stats;
     public GameObject fireballPrefab;
-    public float interval = 2f;
-    public float fireballSpeed = 6f;
 
     float timer;
     Transform player;
@@ -14,7 +13,7 @@ public class BossAttack : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         sr = GetComponent<SpriteRenderer>();
-        timer = interval;
+        timer = stats.cooldownTime;
     }
 
     void Update()
@@ -25,14 +24,15 @@ public class BossAttack : MonoBehaviour
         if (timer <= 0f)
         {
             Shoot();
-            timer = interval;
+            timer = stats.cooldownTime;
         }
     }
 
     void Shoot()
     {
         GameObject f = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-        Vector2 dir = (player.position - transform.position).normalized;
-        f.GetComponent<Rigidbody2D>().linearVelocity = dir * fireballSpeed;
+        f.GetComponent<Fireball>().Init(stats.damage, stats.projectileLifetime);
+        Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
+        f.GetComponent<Rigidbody2D>().linearVelocity = dir * stats.projectileSpeed;
     }
 }
