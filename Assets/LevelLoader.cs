@@ -16,6 +16,7 @@ public class LevelLoader : MonoBehaviour
 
     void Build(LevelData level)
     {
+                GameSession.timeLimit = level.timeLimit;
         player.position = level.playerStart;
         Camera.main.backgroundColor = level.backgroundColor;
 

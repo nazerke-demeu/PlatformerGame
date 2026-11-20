@@ -6,6 +6,7 @@ public static class GameSession
     public static int currentLevel = 0;
     public static int levelCount = 3;
     public static int runScore = 0;
+        public static float timeLimit = 0f;
 
     public static void StartLevel(int index)
     {
