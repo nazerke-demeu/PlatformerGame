@@ -21,10 +21,12 @@ public static class GameSession
         SceneManager.LoadScene("Game");
     }
 
-    public static void CompleteLevel()
+        public static void CompleteLevel()
     {
         Collector c = Object.FindFirstObjectByType<Collector>();
-        if (c != null) runScore += c.coins;
+        Health h = Object.FindFirstObjectByType<Health>();
+        if (c != null && h != null)
+            runScore += c.coins * h.stats.scorePerCoin;
 
         SaveData d = SaveSystem.Data;
         int nextNumber = currentLevel + 2;

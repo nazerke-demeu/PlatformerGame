@@ -17,4 +17,5 @@ public class PlayerStats : ScriptableObject
     public float bulletSpeed = 15f;
     public float bulletLifetime = 2f;
     public int bulletDamage = 1;
+        public int scorePerCoin = 10;
 }

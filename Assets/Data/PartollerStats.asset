@@ -26,3 +26,4 @@ MonoBehaviour:
   cooldownTime: 1.5
   projectileSpeed: 6
   projectileLifetime: 5
+  defeatDelay: 1

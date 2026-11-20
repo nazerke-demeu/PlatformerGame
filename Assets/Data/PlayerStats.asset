@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2133ae54c43ea458a8357f5cf9c5c8, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  moveSpeed: 12
+  moveSpeed: 17
   jumpForce: 10
   maxHp: 3
   blinkCount: 6
@@ -21,3 +21,4 @@ MonoBehaviour:
   bulletSpeed: 15
   bulletLifetime: 2
   bulletDamage: 1
+  scorePerCoin: 10

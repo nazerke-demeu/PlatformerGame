@@ -26,4 +26,5 @@ public class EnemyStats : ScriptableObject
     [Header("Projectile")]
     public float projectileSpeed = 6f;
     public float projectileLifetime = 5f;
+        public float defeatDelay = 1f;
 }

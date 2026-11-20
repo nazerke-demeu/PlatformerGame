@@ -6,7 +6,6 @@ public class BossHealth : MonoBehaviour
 {
     public EnemyStats stats;
     public TMP_Text hpText;
-    public float winDelay = 1f;
 
     int hp;
 
@@ -25,8 +24,7 @@ public class BossHealth : MonoBehaviour
         {
             GetComponent<Collider2D>().enabled = false;
             GetComponent<BossAttack>().enabled = false;
-            Invoke(nameof(Win), winDelay);
-        }
+            Invoke(nameof(Win), stats.defeatDelay);        }
     }
 
        void Win()
