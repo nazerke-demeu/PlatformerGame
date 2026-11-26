@@ -68,10 +68,11 @@ public class PatrollerEnemy : MonoBehaviour
         }
     }
 
-    void StartAlert()
+        void StartAlert()
     {
         state = State.Alert;
         timer = stats.windupTime;
+        if (Sfx.I != null) Sfx.I.PlayFixed(Sfx.I.enemyWindup);
     }
 
     void Face(float x)

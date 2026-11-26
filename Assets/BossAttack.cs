@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
     public GameObject fireballPrefab;
 
     float timer;
+    bool warned;
     Transform player;
     SpriteRenderer sr;
 
@@ -21,10 +22,18 @@ public class BossAttack : MonoBehaviour
         sr.flipX = player.position.x > transform.position.x;
 
         timer -= Time.deltaTime;
+
+        if (!warned && timer <= stats.windupTime)
+        {
+            warned = true;
+            if (Sfx.I != null) Sfx.I.PlayFixed(Sfx.I.enemyWindup);
+        }
+
         if (timer <= 0f)
         {
             Shoot();
             timer = stats.cooldownTime;
+            warned = false;
         }
     }
 

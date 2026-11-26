@@ -27,8 +27,9 @@ public class ShooterEnemy : MonoBehaviour
             case State.Idle:
                 if (CanSeePlayer() && IsOnScreen())
                 {
-                    state = State.Aim;
+                                        state = State.Aim;
                     timer = stats.windupTime;
+                    if (Sfx.I != null) Sfx.I.PlayFixed(Sfx.I.enemyWindup);
                 }
                 break;
 

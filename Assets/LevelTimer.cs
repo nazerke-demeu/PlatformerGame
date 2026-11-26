@@ -23,6 +23,19 @@ public class LevelTimer : MonoBehaviour
         timerText.text = "TIME: " + Mathf.CeilToInt(Mathf.Max(timeLeft, 0f));
 
         if (timeLeft <= 0f)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        {
+            float delay = 0f;
+            if (Sfx.I != null)
+            {
+                Sfx.I.PlayFixed(Sfx.I.lose);
+                delay = Sfx.I.loseDelay;
+            }
+            Invoke(nameof(Reload), delay);
+        }
+    }
+
+    void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

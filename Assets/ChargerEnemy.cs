@@ -39,8 +39,9 @@ public class ChargerEnemy : MonoBehaviour
 
                 if (CanSeePlayer() && IsOnScreen())
                 {
-                    state = State.Windup;
+                                        state = State.Windup;
                     timer = stats.windupTime;
+                    if (Sfx.I != null) Sfx.I.PlayFixed(Sfx.I.enemyWindup);
                     chargeDir = Mathf.Sign(player.position.x - transform.position.x);
                     facing = chargeDir;
                     sr.flipX = facing < 0f;
