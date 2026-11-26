@@ -2491,6 +2491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pausePanel: {fileID: 1260429267}
+  mixer: {fileID: 24100000, guid: 4e7791c627c02ba41b0e61c339a12e7f, type: 2}
+  normalSnapshot: {fileID: 24500006, guid: 4e7791c627c02ba41b0e61c339a12e7f, type: 2}
+  pausedSnapshot: {fileID: 4454923803657440378, guid: 4e7791c627c02ba41b0e61c339a12e7f, type: 2}
+  transitionTime: 0.3
 --- !u!4 &1554412786
 Transform:
   m_ObjectHideFlags: 0
