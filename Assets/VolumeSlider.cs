@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VolumeSlider : MonoBehaviour
+public class VolumeSlider : MonoBehaviour, IPointerUpHandler
 {
-    Slider slider;
+    public AudioMixer mixer;
+    public string param = "MusicVol";
 
-    void Awake()
-    {
-        slider = GetComponent<Slider>();
-    }
+    Slider slider;
 
     void Start()
     {
+        slider = GetComponent<Slider>();
+        slider.minValue = 0.0001f;
+        slider.maxValue = 1f;
         Refresh();
         slider.onValueChanged.AddListener(OnChanged);
     }
@@ -19,14 +22,19 @@ public class VolumeSlider : MonoBehaviour
     public void Refresh()
     {
         if (slider == null) slider = GetComponent<Slider>();
-        slider.SetValueWithoutNotify(SaveSystem.Data.musicVol);
-        Music.SetVolume(SaveSystem.Data.musicVol);
+        float v = VolumeControl.Get(param);
+        slider.SetValueWithoutNotify(v);
+        mixer.SetFloat(param, VolumeControl.ToDb(v));
     }
 
     void OnChanged(float v)
     {
-        SaveSystem.Data.musicVol = v;
-        Music.SetVolume(v);
+        VolumeControl.Set(param, v);
+        mixer.SetFloat(param, VolumeControl.ToDb(v));
+    }
+
+    public void OnPointerUp(PointerEventData e)
+    {
         SaveSystem.Save();
     }
 }

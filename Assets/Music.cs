@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Music : MonoBehaviour
 {
     public static Music Instance;
 
+    public AudioMixer mixer;
     public AudioSource a;
     public AudioSource b;
     public float fadeTime = 1f;
@@ -21,6 +23,12 @@ public class Music : MonoBehaviour
         Instance = this;
         current = a;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        if (Instance == this)
+            VolumeControl.ApplyAll(mixer);
     }
 
     public void Play(AudioClip clip)
@@ -50,10 +58,6 @@ public class Music : MonoBehaviour
         }
         from.Stop();
         to.volume = 1f;
-    }
-
-    public static void SetVolume(float v)
-    {
     }
 
     void OnApplicationPause(bool paused)

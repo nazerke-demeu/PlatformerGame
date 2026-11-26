@@ -38,8 +38,8 @@ public static class SaveSystem
         if (data == null || data.unlocked == null || data.unlocked.Count == 0)
             data = new SaveData();
 
-        data.musicVol = Mathf.Clamp01(data.musicVol);
-        if (data.bestScore < 0) data.bestScore = 0;
+        data.sfxVol = Mathf.Clamp01(data.sfxVol);
+                if (data.bestScore < 0) data.bestScore = 0;
         if (!data.unlocked.Contains(1)) data.unlocked.Add(1);
     }
 

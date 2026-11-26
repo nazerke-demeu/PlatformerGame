@@ -7,4 +7,5 @@ public class SaveData
     public int bestScore = 0;
     public List<int> unlocked = new List<int> { 1 };
     public float musicVol = 0.8f;
+    public float sfxVol = 0.8f;
 }

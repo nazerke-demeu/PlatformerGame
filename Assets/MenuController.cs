@@ -30,13 +30,14 @@ public class MenuController : MonoBehaviour
         confirmPanel.SetActive(false);
     }
 
-        public void ConfirmReset()
+            public void ConfirmReset()
     {
         SaveSystem.ResetAll();
         confirmPanel.SetActive(false);
 
-        VolumeSlider v = FindFirstObjectByType<VolumeSlider>();
-        if (v != null) v.Refresh();
+        VolumeSlider[] sliders = FindObjectsByType<VolumeSlider>(FindObjectsSortMode.None);
+        foreach (VolumeSlider s in sliders)
+            s.Refresh();
     }
 
     public void QuitGame()
